@@ -197,8 +197,8 @@
     const cs = getComputedStyle(box);
     const avail = box.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
     footWord.style.fontSize = '100px';
-    const w = inner.getBoundingClientRect().width;
-    footWord.style.fontSize = `${Math.floor(((100 * avail) / w) * 0.985)}px`;
+    const w = inner.offsetWidth; // ancho de maquetación: no lo altera la escala de la animación
+    footWord.style.fontSize = `${Math.floor(((100 * avail) / w) * 0.995)}px`;
   }
   fitFoot();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitFoot);
